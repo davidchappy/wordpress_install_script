@@ -33,6 +33,6 @@ wp core install --path=$SITE_PATH/$DEST --url=$BASE_URL/$DEST --title=$DEST --ad
 # Open new Wordpress install in your browser and set permissions
 /usr/bin/open -a "/Applications/Google Chrome.app" $BASE_URL/$DEST
 
-echo "Setting folder permissions to _www...(type in your system password)"
+echo "Setting folder permissions to _www...(may need to type in your system password)"
 sudo chown -R _www $SITE_PATH/$DEST
 sudo chmod -R g+w $SITE_PATH/$DEST
