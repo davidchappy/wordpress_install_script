@@ -1,16 +1,14 @@
 #! /bin/bash
 
-# Path to your custom themes/plugins
-PROJECT_PATH="/Users/$USER/GoogleDrive/Code/htdocs/projects"
+#### DO NOT USE REAL PASSWORDS HERE!
 
-# Path to your WordPress installs
+### EDIT THESE
+
+# Path to your local WordPress sites
 SITE_PATH="/Users/$USER/GoogleDrive/Code/htdocs/sites"
 
-# Path to your custom Scripts folder
+# Path to your custom Scripts folder (create if doesn't exist)
 SCRIPT_PATH="/Users/$USER/Scripts/wp-install"
-
-# Base URL (sites will be setup as subdirectories; ex: localhost)
-BASE_URL=""
 
 # Database information
 DB_USER="root"
@@ -20,14 +18,28 @@ DB_HOST="localhost"
 # Email
 ADMIN_EMAIL="davidchappy@gmail.com"
 
-# File Permissions User 
+
+### DEFAULTS
+
+# File Permissions User
 FILE_USER="davidchappy"
 
-# (Optional) - Default Prefix (leave as empty string if you don't need this)
+# Base URL (sites will be setup as subdirectories)
+BASE_URL=""
+
+# If username you want for wordpress is different than DB username
+SITE_USER="davidchappy"
+
+# If password you want for wordpress different than DB username
+SITE_PASS="password"
+
+### OPTIONAL FOR UNIQUE SETUPS
+
+# Default Prefix (leave as empty string if you don't need this)
 PREF="wp"
 
-# (Optional) - Top Level Domain if your development setup requires it (ex: *.dev) - leave empty if doesn't.
+# Top Level Domain if your development setup requires it (ex: *.dev) - leave empty if doesn't.
 TLD="dev"
 
-# (Optional) Add subfolder(s) that reside(s) under the top level folder (ex: "wwwroot")
+# Add subfolder(s) that reside(s) under the top level folder of each site (ex: "wwwroot")
 SUBFOLDER="wwwroot"

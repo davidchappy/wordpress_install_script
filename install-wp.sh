@@ -52,8 +52,6 @@ define('WP_DEBUG_DISPLAY', true);
 define('WP_MEMORY_LIMIT', '256M');
 PHP
 
-echo $DEST 
-
 # Check for and add a top-level-domain
 if [ $TLD != "" ]
 then
@@ -62,21 +60,19 @@ else
   DEST_URL=$DEST
 fi
 
-# Install the WordPress database.
-wp core install --path=$SITE_PATH/$FULL_DEST --url=$DEST_URL --title=$DEST --admin_user=$DB_USER --admin_password=$DB_PASS --admin_email=$ADMIN_EMAIL
+# If different site/admin user/pass provided
+if [ $SITE_USER = "" ]
+then
+  SITE_USER=$DB_USER
+fi
+  
+if [ $SITE_PASS = "" ]
+then
+  SITE_PASS=$DB_PASS
+fi
 
-# # Insert subfolder if present
-# if [ $SUBFOLDER != "" ]
-# then
-#   # ensure glob is enabled
-#   shopt -s extglob
-#   mkdir $SITE_PATH/$DEST/$SUBFOLDER
-#   cd $SITE_PATH/$DEST
-#   mv -r !($SUBFOLDER) $SUBFOLDER 
-#   DEST=$DEST/$SUBFOLDER
-# else 
-#   DEST_URL=$DEST
-# fi
+# Install core WordPress
+wp core install --path=$SITE_PATH/$FULL_DEST --url=$DEST_URL --title=$DEST --admin_user=$SITE_USER --admin_password=$SITE_PASS --admin_email=$ADMIN_EMAIL
 
 # Open new Wordpress install in your browser and set permissions
 /usr/bin/open -a "/Applications/Google Chrome.app" "http://$DEST_URL"
