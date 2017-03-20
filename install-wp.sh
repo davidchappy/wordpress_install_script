@@ -28,7 +28,7 @@ define('WP_MEMORY_LIMIT', '256M');
 PHP
 
 # Install the WordPress database.
-wp core install --path=$SITE_PATH/$DEST --url=$BASE_URL/$DEST --title=$DEST --admin_user=davidchappy --admin_password=password --admin_email=davidchappy@gmail.com
+wp core install --path=$SITE_PATH/$DEST --url=$BASE_URL/$DEST --title=$DEST --admin_user=$DB_USER --admin_password=$DB_PASS --admin_email=$ADMIN_EMAIL
 
 # Open new Wordpress install in your browser and set permissions
 /usr/bin/open -a "/Applications/Google Chrome.app" $BASE_URL/$DEST
