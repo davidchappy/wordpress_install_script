@@ -9,6 +9,15 @@ if [ $# -ne 1 ]; then
 fi
 
 DEST=$1
+
+# Check for and add a prefix
+if [ $PREF != "" ]
+then
+  DEST=$PREF-$DEST
+else 
+  DEST=$DEST
+fi
+
 echo $SITE_PATH/$DEST
 
 read -p "Are you sure you want to delete the files and DB for '$DEST'?" -n 1 -r
