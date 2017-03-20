@@ -74,5 +74,10 @@ fi
 # Install core WordPress
 wp core install --path=$SITE_PATH/$FULL_DEST --url=$DEST_URL --title=$DEST --admin_user=$SITE_USER --admin_password=$SITE_PASS --admin_email=$ADMIN_EMAIL
 
+# Bonus - install All in One Wp Migration plugin
+cd $SITE_PATH/$FULL_DEST
+wp plugin install all-in-one-wp-migration
+
 # Open new Wordpress install in your browser and set permissions
 /usr/bin/open -a "/Applications/Google Chrome.app" "http://$DEST_URL"
+/usr/bin/open -a "/Applications/Google Chrome.app" "http://$DEST_URL/wp-admin"
